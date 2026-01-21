@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function UnifiedCard({ movie, rank }) {
   const { id, title, poster_path, vote_average } = movie;
 
@@ -6,7 +8,7 @@ function UnifiedCard({ movie, rank }) {
     : `https://picsum.photos/seed/${id}/500/750`;
 
   return (
-    <div className="unified-card">
+    <Link to={`/movie/${id}`} className="unified-card">
       {rank && <div className="rank-badge">{rank}</div>}
       <div className="unified-image">
         <img
@@ -23,7 +25,7 @@ function UnifiedCard({ movie, rank }) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

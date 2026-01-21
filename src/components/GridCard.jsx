@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function GridCard({ movie }) {
   const { id, title, poster_path, vote_average } = movie;
 
@@ -6,7 +8,7 @@ function GridCard({ movie }) {
     : `https://picsum.photos/seed/${id}/500/750`;
 
   return (
-    <div className="grid-card">
+    <Link to={`/movie/${id}`} className="grid-card">
       <div className="grid-image">
         <img
           src={imageUrl}
@@ -22,7 +24,7 @@ function GridCard({ movie }) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

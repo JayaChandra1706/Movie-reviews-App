@@ -5,15 +5,29 @@ import TrendingSection from "./components/TrendingSection";
 import LanguageSection from "./components/LanguageSection";
 import AllMoviesSection from "./components/AllMoviesSection";
 
-function App() {
+import { Routes, Route } from "react-router-dom";
+import MovieDetails from "./components/MovieDetails";
+
+function Home() {
   return (
-    <div className="app">
+    <>
       <Header />
       <HeroSection />
       <SearchSection />
       <TrendingSection />
       <LanguageSection />
       <AllMoviesSection />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
     </div>
   );
 }
